@@ -29,5 +29,17 @@ class TickerHistoryTestCase(unittest.TestCase):
 
 		self.assertIn("Empty DataFrame", history_string) # validate empty dataframe due to error thrown
 
+	def test_one_minute_interval(self):
+		"""Testing if an error is thrown when interval is one minute"""
+		history_df = self.mockTickerBase.history(interval="1m")
+
+		history_string = history_df.to_string()
+		print(history_string, "\n") # debugging purposes to see dataframe
+
+		self.assertIn("Empty DataFrame", history_string) # validate empty dataframe due to error thrown
+
 if __name__ == '__main__':
 	unittest.main()
+
+
+		
