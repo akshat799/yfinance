@@ -37,6 +37,15 @@ class TickerHistoryTestCase(unittest.TestCase):
 		print(history_string, "\n") # debugging purposes to see dataframe
 
 		self.assertIn("Empty DataFrame", history_string) # validate empty dataframe due to error thrown
+		
+	def test_one_day_period(self):
+    		"""Testing if printing data with period 1day """
+		history_df = self.mockTickerBase.history(period='1d')
+
+		history_string = history_df.to_string()
+		print(history_string, "\n") # debugging purposes to see dataframe
+
+		self.assertNotEqual(None, history_string) # validate empty dataframe due to error thrown
 
 if __name__ == '__main__':
 	unittest.main()
